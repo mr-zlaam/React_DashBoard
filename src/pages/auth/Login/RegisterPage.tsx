@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 function RegisterPage() {
   return (
     <>
-      <section>
+      <section className="flex items-center justify-center h-screen">
         <Card className="max-w-sm mx-auto">
           <CardHeader>
             <CardTitle className="text-xl">Sign Up</CardTitle>
@@ -27,11 +27,11 @@ function RegisterPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="first-name">First name</Label>
-                  <Input id="first-name" placeholder="Max" required />
+                  <Input id="first-name" placeholder="John" required />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="last-name">Last name</Label>
-                  <Input id="last-name" placeholder="Robinson" required />
+                  <Input id="last-name" placeholder="Doe" required />
                 </div>
               </div>
               <div className="grid gap-2">
@@ -39,13 +39,13 @@ function RegisterPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="john@example.com"
                   required
                 />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" />
+                <Input id="password" type="password" placeholder="••••••••" />
               </div>
               <Button type="submit" className="w-full">
                 Create an account
