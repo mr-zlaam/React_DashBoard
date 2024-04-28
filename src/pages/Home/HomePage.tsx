@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Bell,
+  Book,
   CircleUser,
   Home,
   LineChart,
@@ -40,8 +41,8 @@ function HomePage() {
             <div className="flex flex-col h-full max-h-screen gap-2">
               <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
                 <Link to="/" className="flex items-center gap-2 font-semibold">
-                  <Package2 className="w-6 h-6" />
-                  <span className="">Acme Inc</span>
+                  <Book className="w-6 h-6" />
+                  <span className="">Ebook Store</span>
                 </Link>
                 <Button
                   variant="outline"
@@ -59,38 +60,15 @@ function HomePage() {
                     className="flex items-center gap-3 px-3 py-2 transition-all rounded-lg text-muted-foreground hover:text-primary"
                   >
                     <Home className="w-4 h-4" />
-                    Dashboard
+                    Home
                   </Link>
-                  <Link
-                    to="/"
-                    className="flex items-center gap-3 px-3 py-2 transition-all rounded-lg text-muted-foreground hover:text-primary"
-                  >
-                    <ShoppingCart className="w-4 h-4" />
-                    Orders
-                    <Badge className="flex items-center justify-center w-6 h-6 ml-auto rounded-full shrink-0">
-                      6
-                    </Badge>
-                  </Link>
+
                   <Link
                     to="#"
                     className="flex items-center gap-3 px-3 py-2 transition-all rounded-lg bg-muted text-primary hover:text-primary"
                   >
-                    <Package className="w-4 h-4" />
-                    Products{" "}
-                  </Link>
-                  <Link
-                    to="#"
-                    className="flex items-center gap-3 px-3 py-2 transition-all rounded-lg text-muted-foreground hover:text-primary"
-                  >
-                    <Users className="w-4 h-4" />
-                    Customers
-                  </Link>
-                  <Link
-                    to="#"
-                    className="flex items-center gap-3 px-3 py-2 transition-all rounded-lg text-muted-foreground hover:text-primary"
-                  >
-                    <LineChart className="w-4 h-4" />
-                    Analytics
+                    <Book className="w-4 h-4" />
+                    Books
                   </Link>
                 </nav>
               </div>
