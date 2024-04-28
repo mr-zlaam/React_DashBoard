@@ -15,16 +15,16 @@ function RegisterPage() {
   return (
     <>
       <section className="flex items-center justify-center h-screen">
-        <Card className="max-w-sm mx-auto">
+        <Card className="w-full max-w-sm">
           <CardHeader>
-            <CardTitle className="text-xl">Sign Up</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl text-center">Sign Up</CardTitle>
+            <CardDescription className="text-center">
               Enter your information to create an account
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="username">Username</Label>
                   <Input id="username" placeholder="john_doe" required />
