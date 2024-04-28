@@ -37,15 +37,15 @@ function LoginPage() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" required />
             </div>
+          </CardContent>
+          <CardFooter className="flex-col">
+            <Button className="w-full">Sign in</Button>
             <div className="mt-4 text-sm text-center">
               Don't have an account?{" "}
               <Link to="/register" className="text-blue-500 underline">
                 Register
               </Link>
             </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Sign in</Button>
           </CardFooter>
         </Card>
       </section>
