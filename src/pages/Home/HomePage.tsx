@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <>
       <div className="flex items-center">
-        <h1 className="text-lg font-semibold md:text-2xl">DashBoard</h1>
+        <h1 className="text-lg font-semibold md:text-2xl">Home</h1>
       </div>
       <div
         className="flex items-center justify-center flex-1 border border-dashed rounded-lg shadow-sm"
