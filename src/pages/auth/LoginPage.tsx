@@ -14,6 +14,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ProgressBar } from "react-loader-spinner";
+import { cn } from "@/lib/utils";
 function LoginPage() {
   //navigation
   const navigate = useNavigate();
@@ -70,7 +71,15 @@ function LoginPage() {
             </div>
           </CardContent>
           <CardFooter className="flex-col">
-            <Button onClick={handleLoginSubmit} className="w-full">
+            <Button
+              disabled={mutation.isPending}
+              onClick={handleLoginSubmit}
+              className={cn(
+                "w-full",
+                mutation.isPending &&
+                  "bg-black/50 cursor-not-allowed opacity-90"
+              )}
+            >
               {mutation.isPending ? (
                 <ProgressBar
                   visible={true}
