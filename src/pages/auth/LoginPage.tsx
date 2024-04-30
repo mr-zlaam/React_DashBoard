@@ -13,9 +13,13 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const emailRef = useRef<HTMLInputElement | null>;
+  const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-  const handleLoginSubmit = () => {};
+  const handleLoginSubmit = () => {
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
+    //   console.log(email, password);//Data is changing with input
+  };
   return (
     <>
       <section className="flex items-center justify-center h-screen">
