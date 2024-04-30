@@ -9,17 +9,27 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { login } from "@/http/api";
+import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+  const mutation = useMutation({
+    mutationFn: login,
+    onSuccess: () => {
+      console.log("Login Successfull");
+    },
+  });
   const handleLoginSubmit = () => {
     const email = emailRef.current?.value as string;
     const password = passwordRef.current?.value as string;
-    //   console.log(email, password);//Data is changing with input
+    if (!email || !password) return alert("Please fill all the fields");
+    mutation.mutate({ email, password });
   };
+
   return (
     <>
       <section className="flex items-center justify-center h-screen">
