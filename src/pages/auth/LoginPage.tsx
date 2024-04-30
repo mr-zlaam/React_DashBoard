@@ -13,6 +13,7 @@ import { login } from "@/http/api";
 import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ProgressBar } from "react-loader-spinner";
 function LoginPage() {
   //navigation
   const navigate = useNavigate();
@@ -31,7 +32,12 @@ function LoginPage() {
     if (!email || !password) return alert("Please fill all the fields");
     mutation.mutate({ email, password });
   };
-
+  if (mutation.isError)
+    return (
+      <p className="flex items-center justify-center h-screen text-red-500">
+        Error while login!
+      </p>
+    );
   return (
     <>
       <section className="flex items-center justify-center h-screen">
@@ -66,12 +72,23 @@ function LoginPage() {
           </CardContent>
           <CardFooter className="flex-col">
             <Button onClick={handleLoginSubmit} className="w-full">
-              Sign in
+              {mutation.isPending ? (
+                <ProgressBar
+                  visible={true}
+                  height="60"
+                  width="60"
+                  barColor="#ffffff"
+                  borderColor="#ffffff"
+                  ariaLabel="progress-bar-loading"
+                />
+              ) : (
+                <span>Sign in</span>
+              )}
             </Button>
             <div className="mt-4 text-sm text-center">
               Don't have an account?{" "}
               <Link to="/auth/register" className="text-blue-500 underline">
-                Register
+                Register{" "}
               </Link>
             </div>
           </CardFooter>
