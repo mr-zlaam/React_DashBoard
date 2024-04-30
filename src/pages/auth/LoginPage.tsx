@@ -9,10 +9,13 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {} from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
+  const emailRef = useRef<HTMLInputElement | null>;
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const handleLoginSubmit = () => {};
   return (
     <>
       <section className="flex items-center justify-center h-screen">
@@ -29,6 +32,7 @@ function LoginPage() {
               <Input
                 id="email"
                 type="email"
+                ref={emailRef}
                 placeholder="john@example.com"
                 required
               />
@@ -36,6 +40,7 @@ function LoginPage() {
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
               <Input
+                ref={passwordRef}
                 id="password"
                 type="password"
                 placeholder="••••••••"
@@ -44,7 +49,9 @@ function LoginPage() {
             </div>
           </CardContent>
           <CardFooter className="flex-col">
-            <Button className="w-full">Sign in</Button>
+            <Button onClick={handleLoginSubmit} className="w-full">
+              Sign in
+            </Button>
             <div className="mt-4 text-sm text-center">
               Don't have an account?{" "}
               <Link to="/auth/register" className="text-blue-500 underline">
