@@ -29,20 +29,25 @@ function LoginPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="john@example.com"
                 required
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" required />
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
             </div>
           </CardContent>
           <CardFooter className="flex-col">
             <Button className="w-full">Sign in</Button>
             <div className="mt-4 text-sm text-center">
               Don't have an account?{" "}
-              <Link to="/register" className="text-blue-500 underline">
+              <Link to="/auth/register" className="text-blue-500 underline">
                 Register
               </Link>
             </div>

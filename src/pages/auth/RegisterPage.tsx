@@ -53,7 +53,7 @@ function RegisterPage() {
             </div>
             <div className="mt-4 text-sm text-center">
               Already have an account?{" "}
-              <Link to="/login" className="text-blue-500 underline">
+              <Link to="/auth/login" className="text-blue-500 underline">
                 Sign in
               </Link>
             </div>
