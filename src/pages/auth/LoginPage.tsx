@@ -12,20 +12,22 @@ import { Label } from "@/components/ui/label";
 import { login } from "@/http/api";
 import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 function LoginPage() {
+  //navigation
+  const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const mutation = useMutation({
     mutationFn: login,
     onSuccess: () => {
       console.log("Login Successfull");
+      navigate("/dashboard/home");
     },
   });
   const handleLoginSubmit = () => {
-    const email = emailRef.current?.value as string;
-    const password = passwordRef.current?.value as string;
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
     if (!email || !password) return alert("Please fill all the fields");
     mutation.mutate({ email, password });
   };
