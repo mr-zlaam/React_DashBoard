@@ -32,17 +32,16 @@ function LoginPage() {
     if (!email || !password) return alert("Please fill all the fields");
     mutation.mutate({ email, password });
   };
-  if (mutation.isError)
-    return (
-      <p className="flex items-center justify-center h-screen text-red-500">
-        Error while login!
-      </p>
-    );
   return (
     <>
       <section className="flex items-center justify-center h-screen">
         <Card className="w-full max-w-sm">
           <CardHeader>
+            {mutation.isError && (
+              <p className="text-xs italic text-center text-red-500">
+                {mutation.error.message}: Try Again
+              </p>
+            )}
             <CardTitle className="text-2xl text-center">Sign in</CardTitle>
             <CardDescription className="text-center">
               Enter your email below to login to your account.
