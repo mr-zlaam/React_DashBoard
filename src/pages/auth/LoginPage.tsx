@@ -16,8 +16,8 @@ function LoginPage() {
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const handleLoginSubmit = () => {
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
+    const email = emailRef.current?.value as string;
+    const password = passwordRef.current?.value as string;
     //   console.log(email, password);//Data is changing with input
   };
   return (
