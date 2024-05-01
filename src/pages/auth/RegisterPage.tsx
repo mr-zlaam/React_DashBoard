@@ -12,6 +12,8 @@ import { register } from "@/http/api";
 import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ProgressBar } from "react-loader-spinner";
+import { cn } from "@/lib/utils";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ function RegisterPage() {
     mutationFn: register,
     onSuccess: () => {
       console.log("Login Successfull");
-      navigate("/dashboard/home");
+      navigate("/auth/login");
     },
   });
   const handleRegisterSubmit = () => {
@@ -38,9 +40,13 @@ function RegisterPage() {
   };
   return (
     <>
-      <section className="flex items-center justify-center h-screen">
+      <section className="flex flex-col items-center justify-center h-screen">
+        {mutation.isError && (
+          <p className="text-xs italic text-center text-red-500">
+            username or email already exist
+          </p>
+        )}
         <Card className="w-full max-w-sm">
-          {mutation.isError && <p>{mutation.error.message}</p>}
           <CardHeader>
             <CardTitle className="text-2xl text-center">Sign Up</CardTitle>
             <CardDescription className="text-center">
@@ -89,12 +95,27 @@ function RegisterPage() {
                 />
               </div>
               <Button
+                disabled={mutation.isPending}
                 onClick={handleRegisterSubmit}
-                type="submit"
-                className="w-full"
+                className={cn(
+                  "w-full",
+                  mutation.isPending &&
+                    "bg-black/50 cursor-not-allowed opacity-90"
+                )}
               >
-                Create an account
-              </Button>
+                {mutation.isPending ? (
+                  <ProgressBar
+                    visible={true}
+                    height="60"
+                    width="60"
+                    barColor="#ffffff"
+                    borderColor="#ffffff"
+                    ariaLabel="progress-bar-loading"
+                  />
+                ) : (
+                  <span>Sign in</span>
+                )}
+              </Button>{" "}
             </div>
             <div className="mt-4 text-sm text-center">
               Already have an account?{" "}
