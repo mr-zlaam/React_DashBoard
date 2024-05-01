@@ -12,7 +12,7 @@ export const useTokenStore = create<TokenStore>()(
         token: "",
         setToken: (data) => set(() => ({ token: data })),
       }),
-      { name: "token-store" }
+      { name: "token_ustad" }
     )
   )
 );
