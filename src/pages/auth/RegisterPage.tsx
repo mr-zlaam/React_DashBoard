@@ -113,7 +113,7 @@ function RegisterPage() {
                     ariaLabel="progress-bar-loading"
                   />
                 ) : (
-                  <span>Sign in</span>
+                  <span>Register</span>
                 )}
               </Button>{" "}
             </div>
