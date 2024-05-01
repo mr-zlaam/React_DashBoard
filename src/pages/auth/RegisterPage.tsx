@@ -25,7 +25,6 @@ function RegisterPage() {
   const mutation = useMutation({
     mutationFn: register,
     onSuccess: () => {
-      console.log("Login Successfull");
       navigate("/auth/login");
     },
   });
