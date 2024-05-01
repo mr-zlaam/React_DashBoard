@@ -15,15 +15,18 @@ import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ProgressBar } from "react-loader-spinner";
 import { cn } from "@/lib/utils";
+import { useTokenStore } from "@/store/store";
 function LoginPage() {
   //navigation
   const navigate = useNavigate();
+  const setToken = useTokenStore((state) => state.setToken);
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const mutation = useMutation({
     mutationFn: login,
-    onSuccess: () => {
-      console.log("Login Successfull");
+    onSuccess: (res) => {
+      setToken(res.data?.accessToken);
+      console.log(res.data);
       navigate("/dashboard/home");
     },
   });
