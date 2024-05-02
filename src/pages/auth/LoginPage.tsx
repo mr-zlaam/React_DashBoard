@@ -43,7 +43,7 @@ function LoginPage() {
           <CardHeader>
             {mutation.isError && (
               <p className="text-xs italic text-center text-red-500">
-                {mutation.error.message}: Try Again
+                {mutation.error.name}: Try Again
               </p>
             )}
             <CardTitle className="text-2xl text-center">Sign in</CardTitle>
